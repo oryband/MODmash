@@ -3,16 +3,18 @@
 .hidden      { display: none; visibility: hidden  }
 
 #container {
-    width:   988px;
-    margin:  0 auto;
-    padding: 0;
+    width:            59.375em; /*950px;*/
+    margin:           0 auto;
+    padding:          0;
+    text-align:       center;
+    background-color: black;
 }
 #map { margin: 0; }
-.tile_line { line-height: 0; }
+.row { line-height: 0; }
 .tile {
-    width:            50px;
+    width:            3.125em; /*50px;*/
     height:           50px;
     display:          inline-block;
-    background-image: url("../img/tile.png");
+    /*background-image: url("../img/tile.png");*/
 }
 
