@@ -3,16 +3,29 @@
 .hidden      { display: none; visibility: hidden  }
 
 #container {
-    width:            59.375em; /*950px;*/
+    width:            1000px;
     margin:           0 auto;
     padding:          0;
     text-align:       center;
     background-color: black;
 }
-#map { margin: 0; }
+@font-face {
+    font-family: "MolotRegular"; src: url('../assets/Molot.eot'); src: local("../assets/Molot"), local("../assets/Molot"), url('../assets/Molot.woff') format("woff"), url('../assets/Molot.ttf') format("truetype"), url('../assets/Molot.svg#Molot') format("svg");
+}
+#title {
+    margin:      25px 0 10px;
+    font-family: MolotRegular;
+    color:       yellow;
+    font-size:   100px;
+}
+#map {
+    width:  950px;
+    margin: 0 auto;
+    border: #BB00FF solid 5px;
+}
 .row { line-height: 0; }
 .tile {
-    width:            3.125em; /*50px;*/
+    width:            50px;
     height:           50px;
     display:          inline-block;
     /*background-image: url("../img/tile.png");*/
