@@ -1,26 +1,65 @@
 var MODmash = (function (window, $) {
 
 var MAP = [
-    [['EMPTY'],['EMPTY'],['EMPTY'],['RED_JACK'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['RED_JACK'],['EMPTY'],['EMPTY'],['EMPTY']],
-    [['EMPTY'],['EMPTY'],['EMPTY'],['RED_UP_TO_DOWN'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['RED_UP_TO_DOWN'],['EMPTY'],['EMPTY'],['EMPTY']],
-    [['EMPTY'],['EMPTY'],['EMPTY'],['RED_UP_TO_DOWN'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['RED_UP_TO_DOWN'],['EMPTY'],['EMPTY'],['EMPTY']],
-    [['EMPTY'],['EMPTY'],['EMPTY'],['RED_UP_TO_DOWN'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['SPEAKER_TOP_LEFT'],['SPEAKER_TOP_MID'],['SPEAKER_TOP_RIGHT'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['RED_UP_TO_DOWN'],['EMPTY'],['EMPTY'],['EMPTY']],
-    [['EMPTY'],['EMPTY'],['EMPTY'],['RED_UP_TO_RIGHT'],['RED_LEFT_TO_RIGHT'],['RED_LEFT_TO_RIGHT'],['RED_LEFT_TO_RIGHT'],['RED_LEFT_TO_RIGHT'],['SPEAKER_MID_LEFT'],['SPEAKER_MID_MID'],['SPEAKER_MID_RIGHT'],['RED_RIGHT_TO_LEFT'],['RED_RIGHT_TO_LEFT'],['RED_RIGHT_TO_LEFT'],['RED_RIGHT_TO_LEFT'],['RED_UP_TO_LEFT'],['EMPTY'],['EMPTY'],['EMPTY']],
+    [['BLACK_UP_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_UP'],['BLACK_UP_TO_RIGHT'],['BLACK_LEFT_TO_DOWN'],['BLACK_RIGHT_TO_DOWN'],['BLACK_RIGHT_TO_LEFT'],['BLACK_UP_TO_LEFT'],['BLACK_UP_TO_RIGHT'],['BLACK_LEFT_TO_UP'],['BLACK_UP_TO_DOWN'],['GREEN_UP_TO_DOWN'],['BLACK_UP_TO_RIGHT'],['BLACK_RIGHT_TO_LEFT'],['BLACK_RIGHT_TO_LEFT'],['BLACK_RIGHT_TO_LEFT'],['BLACK_RIGHT_TO_LEFT'],['BLACK_RIGHT_TO_LEFT']],
+    [['YELLOW_JACK'],['YELLOW_LEFT_TO_RIGHT'],['YELLOW_LEFT_TO_RIGHT'],['YELLOW_LEFT_TO_RIGHT'],['YELLOW_LEFT_TO_DOWN'],['BLACK_UP_TO_DOWN'],['BLACK_UP_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_UP'],['GREEN_UP_TO_RIGHT'],['GREEN_LEFT_TO_RIGHT'],['GREEN_LEFT_TO_RIGHT'],['GREEN_LEFT_TO_RIGHT'],['GREEN_LEFT_TO_RIGHT'],['GREEN_LEFT_TO_RIGHT'],['GREEN_JACK']],
+    [['EMPTY'],['BLACK_DOWN_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_DOWN'],['BLACK_UP_TO_DOWN'],['BLACK_UP_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_DOWN'],['BLACK_DOWN_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_DOWN'],['BLACK_DOWN_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT']],
+    [['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_UP'],['BLACK_DOWN_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['SPEAKER_TOP_LEFT'],['SPEAKER_TOP_MID'],['SPEAKER_TOP_RIGHT'],['BLACK_RIGHT_TO_LEFT'],['BLACK_UP_TO_LEFT'],['BLACK_DOWN_TO_UP'],['BLACK_DOWN_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT']],
+    [['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_RIGHT'],['BLACK_LEFT_TO_UP'],['BLACK_DOWN_TO_RIGHT'],['RED_LEFT_TO_RIGHT'],['RED_LEFT_TO_RIGHT'],['RED_LEFT_TO_RIGHT'],['RED_LEFT_TO_RIGHT'],['SPEAKER_MID_LEFT'],['SPEAKER_MID_MID'],['SPEAKER_MID_RIGHT'],['BLUE_RIGHT_TO_LEFT'],['BLUE_RIGHT_TO_LEFT'],['BLUE_RIGHT_TO_LEFT'],['BLUE_RIGHT_TO_LEFT'],['BLUE_RIGHT_TO_LEFT'],['BLUE_RIGHT_TO_LEFT'],['BLUE_RIGHT_TO_LEFT'],['BLUE_JACK']],
     [['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['SPEAKER_BOT_LEFT'],['SPEAKER_BOT_MID'],['SPEAKER_BOT_RIGHT'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY']],
     [['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY']],
     [['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY']],
     [['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY']]
 ];
 
-var AUDIO = [
-    'audio/a-001.wav',
-    'audio/a-002.wav',
-    'audio/a-003.wav',
-    'audio/a-004.wav'
+var AUDIO = {
+    'RED_JACK'    : 'audio/a-002.wav',
+    'GREEN_JACK'  : 'audio/a-003.wav',
+    'BLUE_JACK'   : 'audio/a-001.wav',
+    'YELLOW_JACK' : 'audio/a-004.wav'
+};
+
+var JACK = ['BLUE_JACK', 'RED_JACK', 'GREEN_JACK', 'YELLOW_JACK'];
+
+var SPEAKER = [
+    'SPEAKER_TOP_LEFT', 'SPEAKER_TOP_MID', 'SPEAKER_TOP_RIGHT',
+    'SPEAKER_MID_LEFT', 'SPEAKER_MID_MID', 'SPEAKER_MID_RIGHT',
+    'SPEAKER_BOT_LEFT', 'SPEAKER_BOT_MID', 'SPEAKER_BOT_RIGHT'
 ];
 
+var UP_TO_DOWN  = ['BLACK_UP_TO_DOWN', 'RED_UP_TO_DOWN', 'BLUE_UP_TO_DOWN', 'GREEN_UP_TO_DOWN','YELLOW_UP_TO_DOWN'];
+var DOWN_TO_UP  = ['BLACK_DOWN_TO_UP', 'RED_DOWN_TO_UP', 'BLUE_DOWN_TO_UP', 'GREEN_DOWN_TO_UP', 'YELLOW_DOWN_TO_UP'];
+
+var UP_TO_RIGHT  = ['BLACK_UP_TO_RIGHT', 'RED_UP_TO_RIGHT', 'BLUE_UP_TO_RIGHT', 'GREEN_UP_TO_RIGHT', 'YELLOW_UP_TO_RIGHT'];
+var RIGHT_TO_UP  = ['BLACK_RIGHT_TO_UP', 'RED_RIGHT_TO_UP', 'BLUE_RIGHT_TO_UP', 'GREEN_RIGHT_TO_UP', 'YELLOW_RIGHT_TO_UP'];
+
+var UP_TO_LEFT  = ['BLACK_UP_TO_LEFT', 'RED_UP_TO_LEFT', 'BLUE_UP_TO_LEFT', 'GREEN_UP_TO_LEFT', 'YELLOW_UP_TO_LEFT'];
+var LEFT_TO_UP  = ['BLACK_LEFT_TO_UP', 'RED_LEFT_TO_UP', 'BLUE_LEFT_TO_UP', 'GREEN_LEFT_TO_UP', 'YELLOW_LEFT_TO_UP'];
+
+var DOWN_TO_RIGHT  = ['BLACK_DOWN_TO_RIGHT', 'RED_DOWN_TO_RIGHT', 'BLUE_DOWN_TO_RIGHT', 'GREEN_DOWN_TO_RIGHT', 'YELLOW_DOWN_TO_RIGHT'];
+var RIGHT_TO_DOWN  = ['BLACK_RIGHT_TO_DOWN', 'RED_RIGHT_TO_DOWN', 'BLUE_RIGHT_TO_DOWN', 'GREEN_RIGHT_TO_DOWN', 'YELLOW_RIGHT_TO_DOWN'];
+
+var DOWN_TO_LEFT  = ['BLACK_DOWN_TO_LEFT', 'RED_DOWN_TO_LEFT', 'BLUE_DOWN_TO_LEFT', 'GREEN_DOWN_TO_LEFT', 'YELLOW_DOWN_TO_LEFT'];
+var LEFT_TO_DOWN  = ['BLACK_LEFT_TO_DOWN', 'RED_LEFT_TO_DOWN', 'BLUE_LEFT_TO_DOWN', 'GREEN_LEFT_TO_DOWN', 'YELLOW_LEFT_TO_DOWN'];
+
+var LEFT_TO_RIGHT  = ['BLACK_LEFT_TO_RIGHT', 'RED_LEFT_TO_RIGHT', 'BLUE_LEFT_TO_RIGHT', 'GREEN_LEFT_TO_RIGHT', 'YELLOW_LEFT_TO_RIGHT'];
+var RIGHT_TO_LEFT  = ['BLACK_RIGHT_TO_LEFT', 'RED_RIGHT_TO_LEFT', 'BLUE_RIGHT_TO_LEFT', 'GREEN_RIGHT_TO_LEFT', 'YELLOW_RIGHT_TO_LEFT'];
+
+var SWITCHES = ['1_UP_TO_1_DOWN', '1_DOWN_TO_1_UP'];
+
 var ENUM = {
+    //'SWITCHES' : {},
     'GATES' : {
+        // Switches
+        /*
+        '1_RIGHT_TO_1_LEFT' : { 'IMAGE': '' },
+        '1_LEFT_TO_1_RIGHT' : { 'IMAGE': 'img/A_bot.png' },
+
+        '1_UP_TO_1_DOWN' : { 'IMAGE': '' },
+        '1_DOWN_TO_1_UP' : { 'IMAGE': '' },
+        */
+
+        // Gates
         'EMPTY' : { 'IMAGE': 'img/tile.png' },
 
         'SPEAKER_TOP_LEFT'  : { 'IMAGE': 'img/speaker_top_left.png'  },
@@ -103,18 +142,77 @@ var ENUM = {
         'BLUE_LEFT_TO_DOWN'   : { 'IMAGE': 'img/blue_DL.png'   },
         'GREEN_LEFT_TO_DOWN'  : { 'IMAGE': 'img/green_DL.png'  },
         'YELLOW_LEFT_TO_DOWN' : { 'IMAGE': 'img/yellow_DL.png' },
-    },
-    'EFFECTS' : [
-        'SLOW',
-        'ACCELERATE'
-    ],
+    }
 };
 
 var ACTIVE_ROW    = null;
 var ACTIVE_COLUMN = null;
 
+// Checks for audio connections (from jacks to speaker) and mutes/unmutes the audio tracks.
+// TODO: For now, jacks can only be placed on right/left-most sides of screen (first/last row).
 var audio = function() {
     console.log('audio');
+    jacks = [];
+    // Populate jacks in format [ [row,column], [row,column], ... ]
+    /*$.each(MAP, function(index, value) { // Iterate over all tiles and check for jacks.
+        var row = index;
+        */
+        var row_length = MAP.length;
+        var column_length = MAP[row_length -1].length;
+        /*$.each(MAP[row], function(column, tile) { if (JACK.indexOf(gate(tile)) != -1) { jacks.push({'jack': gate(tile), 'row':row,'column':column}); } });*/
+        for (var row=0; row < MAP.length; row++) {
+            var tile = MAP[row][column_length -1];
+            if (JACK.indexOf(gate(tile)) != -1) { jacks.push({'jack': gate(tile), 'row':row, 'column':column_length -1 }); }
+            var tile = MAP[row][0];
+            if (JACK.indexOf(gate(tile)) != -1) { jacks.push({'jack': gate(tile), 'row':row, 'column':0                }); }
+        }
+    //});
+    $.each(jacks, function(index, jack) {
+        var row    = jack['row'];
+        var column = jack['column'];
+        var jack   = jack['jack'];
+
+        // Calculate wire connection speaker.
+        if (column == column_length -1) { var connected = connect(row, column_length -2, 'RIGHT', MAP[row][column_length -2], 20); }
+        else if (column == 0)           { var connected = connect(row, 1,                'LEFT',  MAP[row][1], 20); }
+        console.log(jack + ": " + connected);
+
+        // Mute/unmute audio tracks by connections.
+        var track = $('#'+jack)[0];
+
+        //$('#'+jack).muted = true;
+        if (connected) { track.muted = false; }
+        else           { track.muted = true;  }
+    });
+    setTimeout(audio, 5000);
+};
+
+var connect = function(row, column, source, tile, count) {
+    console.log(gate(tile)+","+row+","+column+","+source+","+count+","+(LEFT_TO_RIGHT.indexOf(gate(tile))!=-1));
+     if (count && row >= 0 && row < MAP.length && column >= 0 && column < MAP[0].length) {
+             if (UP_TO_DOWN    .indexOf(gate(tile)) != -1 && source == 'UP')    { if (row+1 < MAP.length)       { return connect(row+1, column,   'UP',    MAP[row+1][column  ], count--); } else { return false; } }
+        else if (DOWN_TO_UP    .indexOf(gate(tile)) != -1 && source == 'DOWN')  { if (row-1 >= 0)               { return connect(row-1, column,   'DOWN',  MAP[row-1][column  ], count--); } else { return false; } }
+        else if (UP_TO_RIGHT   .indexOf(gate(tile)) != -1 && source == 'UP')    { if (column+1 < MAP[0].length) { return connect(row,   column+1, 'LEFT',  MAP[row  ][column+1], count--); } else { return false; } }
+        else if (RIGHT_TO_UP   .indexOf(gate(tile)) != -1 && source == 'RIGHT') { if (row-1 >= 0)               { return connect(row-1, column,   'DOWN',  MAP[row-1][column  ], count--); } else { return false; } }
+        else if (UP_TO_LEFT    .indexOf(gate(tile)) != -1 && source == 'UP')    { if (column-1 > 0)             { return connect(row,   column-1, 'RIGHT', MAP[row  ][column-1], count--); } else { return false; } }
+        else if (LEFT_TO_UP    .indexOf(gate(tile)) != -1 && source == 'LEFT')  { if (row-1 >= 0)               { return connect(row-1, column,   'DOWN',  MAP[row-1][column  ], count--); } else { return false; } }
+        else if (DOWN_TO_RIGHT .indexOf(gate(tile)) != -1 && source == 'DOWN')  { if (column+1 < MAP[0].length) { return connect(row,   column+1, 'LEFT',  MAP[row  ][column+1], count--); } else { return false; } }
+        else if (RIGHT_TO_DOWN .indexOf(gate(tile)) != -1 && source == 'RIGHT') { if (row+1 < MAP.length)       { return connect(row+1, column,   'UP',    MAP[row+1][column  ], count--); } else { return false; } }
+        else if (DOWN_TO_LEFT  .indexOf(gate(tile)) != -1 && source == 'DOWN')  { if (column-1 > 0)             { return connect(row,   column-1, 'RIGHT', MAP[row  ][column-1], count--); } else { return false; } }
+        else if (LEFT_TO_DOWN  .indexOf(gate(tile)) != -1 && source == 'LEFT')  { if (row+1 < MAP.length)       { return connect(row+1, column,   'UP',    MAP[row+1][column  ], count--); } else { return false; } }
+        else if (RIGHT_TO_LEFT .indexOf(gate(tile)) != -1 && source == 'RIGHT') { if (column-1 > 0)             { return connect(row,   column-1, 'RIGHT', MAP[row  ][column-1], count--); } else { return false; } }
+        else if (LEFT_TO_RIGHT .indexOf(gate(tile)) != -1 && source == 'LEFT')  { if (column+1 < MAP[0].length) { return connect(row,   column+1, 'LEFT',  MAP[row  ][column+1], count--); } else { return false; } }
+
+        /*
+        else if (SWITCHES.indexOf(gate(tile)) != -1) {
+            if (gate(tile) == '1_LEFT_TO_1_RIGHT' && source == 'LEFT' && column+1 < MAP[0].length) { return connect(row,   column+1, 'LEFT',  MAP[row  ][column+1], count--); }
+            else { return false; }
+        }
+        */
+
+        else if (SPEAKER       .indexOf(gate(tile)) != -1)                                                      { return true; }
+        else                                                                                                    { return false; }
+     } else { return false; }
 };
 
 var gate   = function(tile) { return tile[0]; };
@@ -160,6 +258,7 @@ var draw_tiles = function() {
         var row = index;
         $('#row_'+(row+1)+'>.tile').each(function(column, value) {
             var tile  = MAP[row][column];
+            console.log(gate(tile));
             var image = 'url("'+ENUM['GATES'][gate(tile)]['IMAGE']+'")'
             $('#row_'+(row+1)+'>.column_'+(column+1)).css('background-image', image);
         });
@@ -173,7 +272,9 @@ var init = (function(){
     draw_tiles();
 
     // Push <audio> tags to HTML.
-    $.each(AUDIO, function(index, value) { $('#audio').append('<audio src="' + value + '" autobuffer loop controls></audio> '+value+'<br />'); });
+    $.each(AUDIO, function(jack, audio) {
+        $('#audio').append('<audio id="' + jack + '" src="' + audio + '" autobuffer autoplay loop controls></audio> '+audio+'<br />');
+    });
 
     // Switch tile type every time the player clicks it.
     $('.tile').click(switch_tile);
@@ -193,15 +294,10 @@ end while
 
 var run = (function() {
     console.log('run');
-    var i = 0;
-    while (i<100 /*true*/) {
+    setTimeout(audio, 200);
         // input();
         // set_tiles();
         // set_tracks();
-        audio();
-
-        i++;
-    }
     return self;
 }());
 
