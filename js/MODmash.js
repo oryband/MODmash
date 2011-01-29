@@ -4,9 +4,9 @@ var MAP = [
     [['EMPTY'],['EMPTY'],['EMPTY'],['RED_JACK'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['RED_JACK'],['EMPTY'],['EMPTY'],['EMPTY']],
     [['EMPTY'],['EMPTY'],['EMPTY'],['RED_UP_TO_DOWN'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['RED_UP_TO_DOWN'],['EMPTY'],['EMPTY'],['EMPTY']],
     [['EMPTY'],['EMPTY'],['EMPTY'],['RED_UP_TO_DOWN'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['RED_UP_TO_DOWN'],['EMPTY'],['EMPTY'],['EMPTY']],
-    [['EMPTY'],['EMPTY'],['EMPTY'],['RED_UP_TO_DOWN'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['RED_UP_TO_DOWN'],['EMPTY'],['EMPTY'],['EMPTY']],
-    [['EMPTY'],['EMPTY'],['EMPTY'],['RED_UP_TO_RIGHT'],['RED_LEFT_TO_RIGHT'],['RED_LEFT_TO_RIGHT'],['RED_LEFT_TO_RIGHT'],['RED_LEFT_TO_RIGHT'],['EMPTY'],['EMPTY'],['EMPTY'],['RED_RIGHT_TO_LEFT'],['RED_RIGHT_TO_LEFT'],['RED_RIGHT_TO_LEFT'],['RED_RIGHT_TO_LEFT'],['RED_UP_TO_LEFT'],['EMPTY'],['EMPTY'],['EMPTY']],
-    [['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY']],
+    [['EMPTY'],['EMPTY'],['EMPTY'],['RED_UP_TO_DOWN'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['SPEAKER_TOP_LEFT'],['SPEAKER_TOP_MID'],['SPEAKER_TOP_RIGHT'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['RED_UP_TO_DOWN'],['EMPTY'],['EMPTY'],['EMPTY']],
+    [['EMPTY'],['EMPTY'],['EMPTY'],['RED_UP_TO_RIGHT'],['RED_LEFT_TO_RIGHT'],['RED_LEFT_TO_RIGHT'],['RED_LEFT_TO_RIGHT'],['RED_LEFT_TO_RIGHT'],['SPEAKER_MID_LEFT'],['SPEAKER_MID_MID'],['SPEAKER_MID_RIGHT'],['RED_RIGHT_TO_LEFT'],['RED_RIGHT_TO_LEFT'],['RED_RIGHT_TO_LEFT'],['RED_RIGHT_TO_LEFT'],['RED_UP_TO_LEFT'],['EMPTY'],['EMPTY'],['EMPTY']],
+    [['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['SPEAKER_BOT_LEFT'],['SPEAKER_BOT_MID'],['SPEAKER_BOT_RIGHT'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY']],
     [['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY']],
     [['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY']],
     [['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY'],['EMPTY']]
@@ -22,6 +22,16 @@ var AUDIO = [
 var ENUM = {
     'GATES' : {
         'EMPTY' : { 'IMAGE': 'img/tile.png' },
+
+        'SPEAKER_TOP_LEFT'  : { 'IMAGE': 'img/speaker_top_left.png'  },
+        'SPEAKER_TOP_MID'   : { 'IMAGE': 'img/speaker_top_mid.png'   },
+        'SPEAKER_TOP_RIGHT' : { 'IMAGE': 'img/speaker_top_right.png' },
+        'SPEAKER_MID_LEFT'  : { 'IMAGE': 'img/speaker_mid_left.png'  },
+        'SPEAKER_MID_MID'   : { 'IMAGE': 'img/speaker_mid_mid.png'   },
+        'SPEAKER_MID_RIGHT' : { 'IMAGE': 'img/speaker_mid_right.png' },
+        'SPEAKER_BOT_LEFT'  : { 'IMAGE': 'img/speaker_bot_left.png'  },
+        'SPEAKER_BOT_MID'   : { 'IMAGE': 'img/speaker_bot_mid.png'   },
+        'SPEAKER_BOT_RIGHT' : { 'IMAGE': 'img/speaker_bot_right.png' },
 
         'BLUE_JACK'   : { 'IMAGE': 'img/blue_jack.png'   },
         'RED_JACK'    : { 'IMAGE': 'img/red_jack.png'    },

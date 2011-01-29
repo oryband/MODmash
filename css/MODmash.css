@@ -9,9 +9,7 @@
     text-align:       center;
     background-color: black;
 }
-@font-face {
-    font-family: "MolotRegular"; src: url('../assets/Molot.eot'); src: local("../assets/Molot"), local("../assets/Molot"), url('../assets/Molot.woff') format("woff"), url('../assets/Molot.ttf') format("truetype"), url('../assets/Molot.svg#Molot') format("svg");
-}
+@font-face { font-family: "MolotRegular"; src: url('../assets/Molot.eot'); src: local("../assets/Molot"), local("../assets/Molot"), url('../assets/Molot.woff') format("woff"), url('../assets/Molot.ttf') format("truetype"), url('../assets/Molot.svg#Molot') format("svg"); }
 #title {
     margin:      25px 0 10px;
     font-family: MolotRegular;
