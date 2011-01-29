@@ -1,0 +1,17 @@
+# Mac OS X Finder and whatnot
+.DS_Store
+
+# automatic backup files
+*.swp
+
+# Music
+*.wav
+*.mp3
+
+# build products
+
+# Examples:
+#Backup[ ]of[ ]*.pages/
+#build/
+#*.[oa] # This is inside build/
+
